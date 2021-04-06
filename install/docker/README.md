@@ -37,12 +37,19 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compo
 chmod +x /usr/local/bin/docker-compose
 ```
 
-## 安装XrayR
+## Docker-compose 安装XrayR (推荐)
 
 1. `git clone https://github.com/XrayR-project/XrayR-release`
 2. `cd XrayR-release`
 3. 编辑配置文件：`config.yml`，详见：[配置文件说明](../../config/README.md)
 4. 启动docker：`docker-compose up -d`
+
+## Docker run 安装XrayR
+
+请注意指定`config.yml`目录。
+``` bash
+docker pull crackair/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host crackair/xrayr:latest
+```
 
 ## 更新XrayR
 

@@ -10,7 +10,7 @@ A Xray backend framework that can easily support many panels.
 
 一个基于Xray的后端框架，支持V2ay,Trojan,Shadowsocks协议，极易扩展，支持多面板对接。
 
-项目地址: https://github.com/XrayR-project
+项目地址: [https://github.com/XrayR-project](https://github.com/XrayR-project)
 
 ## 项目目录
 
@@ -19,6 +19,7 @@ A Xray backend framework that can easily support many panels.
 * [XrayR-doc](https://github.com/XrayR-project/XrayR-doc)：XrayR文档源码。
 
 ## 特点
+
 * 永久开源且免费。
 * 支持V2ray，Trojan， Shadowsocks多种协议。
 * 支持Vless和XTLS等新特性。
@@ -31,28 +32,25 @@ A Xray backend framework that can easily support many panels.
 
 ## 功能介绍
 
-| 功能            | v2ray | trojan | shadowsocks |
-| --------------- | ----- | ------ | ----------- |
-| 获取节点信息    | √     | √      | √           |
-| 获取用户信息    | √     | √      | √           |
-| 用户流量统计    | √     | √      | √           |
-| 服务器信息上报  | √     | √      | √           |
-| 自动申请tls证书 | √     | √      | √           |
-| 自动续签tls证书 | √     | √      | √           |
-| 在线人数统计    | √     | √      | √           |
-| 在线用户限制    | √     | √      | √           |
-| 审计规则        | √     | √      | √           |
-| 节点端口限速    | √     | √      | √           |
-| 按照用户限速    | √     | √      | √           |
-| 自定义DNS       | √     | √      | √           |
+| 功能 | v2ray | trojan | shadowsocks |
+| :--- | :--- | :--- | :--- |
+| 获取节点信息 | √ | √ | √ |
+| 获取用户信息 | √ | √ | √ |
+| 用户流量统计 | √ | √ | √ |
+| 服务器信息上报 | √ | √ | √ |
+| 自动申请tls证书 | √ | √ | √ |
+| 自动续签tls证书 | √ | √ | √ |
+| 在线人数统计 | √ | √ | √ |
+| 在线用户限制 | √ | √ | √ |
+| 审计规则 | √ | √ | √ |
+| 节点端口限速 | √ | √ | √ |
+| 按照用户限速 | √ | √ | √ |
+| 自定义DNS | √ | √ | √ |
+
 ## 支持前端
 
-| 前端        | v2ray | trojan | shadowsocks                    |
-| ----------- | ----- | ------ | ------------------------------ |
-| sspanel-uim | √     | √      | √ (Shadowsocks - 单端口多用户) |
-| v2board     | √     | √      | √                              |
-
-
-
-
+| 前端 | v2ray | trojan | shadowsocks |
+| :--- | :--- | :--- | :--- |
+| sspanel-uim | √ | √ | √ \(Shadowsocks - 单端口多用户\) |
+| v2board | √ | √ | √ |
 

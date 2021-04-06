@@ -7,3 +7,6 @@
 * [使用docker安装](install/docker/README.md)
 * [手动安装](install/manual/README.md)
 
+## XrayR配置文件说明
+* [配置文件说明](config/README.md)
+

@@ -195,6 +195,9 @@ ControllerConfig:
 |`EnableDNS`|`true`,`false`|是否为当前节点启用自定义DNS，默认使用系统DNS|
 
 #### 证书申请相关配置
+
+XrayR 支持多种自动申请证书配置。申请到的证书将会放在XrayR软件运行目录的`.lego`文件夹下。
+
 ``` yaml
 CertConfig:
     CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.

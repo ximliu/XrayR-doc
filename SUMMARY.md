@@ -10,3 +10,17 @@
 ## XrayR配置文件说明
 * [配置文件说明](config/README.md)
 
+## 对接SSpanel
+* [基本对接配置](sspanel/README.md)
+    * [对接V2ray](sspanel/v2ray/README.md)
+    * [对接Trojan](sspanel/trojan/README.md)
+    * [对接Shadowsocks](sspanel/shadowsocks/README.md)
+
+## 对接V2board
+* [基本对接配置](v2board/README.md)
+
+## 功能说明
+* [限速功能说明](functions/speedlimit.md)
+* [自定义DNS说明](functions/dns.md)
+* [审计功能说明](functions/rule.md)
+

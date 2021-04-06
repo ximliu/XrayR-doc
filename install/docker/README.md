@@ -41,7 +41,7 @@ chmod +x /usr/local/bin/docker-compose
 
 1. `git clone https://github.com/XrayR-project/XrayR-release`
 2. `cd XrayR-release`
-3. 编辑配置文件：`config.yml`
+3. 编辑配置文件：`config.yml`，详见：[配置文件说明](../../config/README.md)
 4. 启动docker：`docker-compose up -d`
 
 ## 更新XrayR

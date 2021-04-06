@@ -14,3 +14,5 @@ go mod tidy
 go build -o XrayR -ldflags "-s -w"
 ./XrayR -config config.yml
 ```
+
+配置文件详见：[配置文件说明](../../config/README.md)

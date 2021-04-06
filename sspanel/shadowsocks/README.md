@@ -15,3 +15,4 @@
 ## Shadowsocks 示例
 ```
 示例：gz.aaa.com;port=80#1234;server=gz.aaa.com
+```

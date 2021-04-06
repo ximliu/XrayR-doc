@@ -24,4 +24,5 @@
 * [限速功能说明](functions/speedlimit.md)
 * [自定义DNS说明](functions/dns.md)
 * [审计功能说明](functions/rule.md)
+* [自动申请证书说明](functions/cert.md)
 

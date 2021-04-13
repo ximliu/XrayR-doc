@@ -56,5 +56,5 @@ XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配�
 ## 启用xtls **(此项为实验性功能)**
 替换tls为xtls
 ```
-示例：1.3.5.7;12345;2;tcp;xtls;server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;12345;2;tcp;xtls;server=hk.domain.com|host=hk.domain.com|enable_vless=true
 ```

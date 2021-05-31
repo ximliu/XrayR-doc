@@ -180,18 +180,18 @@ ApiConfig:
     DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
     RuleListPath: # ./rulelist Path to local rulelist file
 ```
-| 参数          | 选项                           | 说明                                    |
-| ------------- | ------------------------------ | --------------------------------------- |
-| `ApiHost`     | 无                             | 对接前端面板地址                        |
-| `ApiKey`      | 无                             | 前端对接通讯秘钥                        |
-| `NodeID`      | 无                             | 节点ID                                  |
-| `NodeType`    | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型                                |
-| `Timeout`     | 无                             | 设定单次访问API超时时间，默认5秒        |
-| `EnableVless` | `true`,`false`                 | 是否给V2ray启用Vless协议                |
-| `EnableXTLS`  | `true`,`false`                 | 是否使用XTLS                            |
-| `SpeedLimit`  | float                          | 本地限速设置，会覆盖远程设置，0为不启用 |
-| `DeviceLimit` | int                            | 本地设备限制，会覆盖远程设置，0为不启用 |
-| `DeviceLimit` | 无                             | 本地规则设置，指定本地规则文件路径      |
+| 参数           | 选项                           | 说明                                             |
+| -------------- | ------------------------------ | ------------------------------------------------ |
+| `ApiHost`      | 无                             | 对接前端面板地址                                 |
+| `ApiKey`       | 无                             | 前端对接通讯秘钥                                 |
+| `NodeID`       | 无                             | 节点ID                                           |
+| `NodeType`     | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型                                         |
+| `Timeout`      | 无                             | 设定单次访问API超时时间，默认5秒                 |
+| `EnableVless`  | `true`,`false`                 | 是否给V2ray启用Vless协议                         |
+| `EnableXTLS`   | `true`,`false`                 | 是否使用XTLS                                     |
+| `SpeedLimit`   | float                          | 本地限速设置，会覆盖远程设置，0为不启用          |
+| `DeviceLimit`  | int                            | 本地设备限制，会覆盖远程设置，0为不启用          |
+| `RuleListPath` | 无                             | 本地规则设置，指定本地规则文件路径，规则文件格式 |
 #### 后端相关配置
 ``` yaml
 ControllerConfig:

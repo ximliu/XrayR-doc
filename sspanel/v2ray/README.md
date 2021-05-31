@@ -8,7 +8,7 @@
 
 ## SSpanel-uim 节点地址格式
 ```
-IP;监听端口;alterId;(tcp或ws);(tls或xtls或不填);path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx|enable_vless=(true或false)
+IP;监听端口;alterId;(tcp或ws);(tls或不填);path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx
 ```
 alterId设为0，则自动启用VMessAEAD。
 ## TCP示例
@@ -48,13 +48,10 @@ XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配�
 ```
 ## 启用Vless **(此项为实验性功能)**
 
-在任一配置组合后增加`|enable_vless=true`.
-```
-示例：1.3.5.7;12345;2;tcp;tls;server=hk.domain.com|host=hk.domain.com|enable_vless=true
-```
+在本地设置文件将`EnableVless`设为true。
+配置文件详见：[配置文件说明](../config/README.md)
+
 请开启vless同时务必使用tls或者xtls。
 ## 启用xtls **(此项为实验性功能)**
-替换tls为xtls
-```
-示例：1.3.5.7;12345;2;tcp;xtls;server=hk.domain.com|host=hk.domain.com
-```
+在本地设置文件将`EnableXTLS`设为true。
+配置文件详见：[配置文件说明](../config/README.md)

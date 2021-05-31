@@ -111,8 +111,11 @@ Nodes:
       NodeID: 41
       NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan
       Timeout: 30 # Timeout for the api request, Default is 5 sec
-      EnableVless: false # Enable Vless for V2ray Type, Prefer remote configuration
-      EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+      EnableVless: false # Enable Vless for V2ray Type
+      EnableXTLS: false # Enable XTLS for V2ray and Trojan
+      SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
+      DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
+      RuleListPath: # ./rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
@@ -135,8 +138,11 @@ Nodes:
       NodeID: 42
       NodeType: Trojan # Node type: V2ray, Shadowsocks, Trojan
       Timeout: 30 # Timeout for the api request
-      EnableVless: false # Enable Vless for V2ray Type, Prefer remote configuration
-      EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+      EnableVless: false # Enable Vless for V2ray Type
+      EnableXTLS: false # Enable XTLS for V2ray and Trojan
+      SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
+      DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
+      RuleListPath: # ./rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
@@ -168,19 +174,24 @@ ApiConfig:
     NodeID: 41
     NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan
     Timeout: 30 # Timeout for the api request, Default is 5 sec
-    EnableVless: false # Enable Vless for V2ray Type, Prefer remote
-    EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+    EnableVless: false # Enable Vless for V2ray Type
+    EnableXTLS: false # Enable XTLS for V2ray and Trojan
+    SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
+    DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
+    RuleListPath: # ./rulelist Path to local rulelist file
 ```
-| 参数          | 选项                           | 说明                                                          |
-| ------------- | ------------------------------ | ------------------------------------------------------------- |
-| `ApiHost`     | 无                             | 对接前端面板地址                                              |
-| `ApiKey`      | 无                             | 前端对接通讯秘钥                                              |
-| `NodeID`      | 无                             | 节点ID                                                        |
-| `NodeType`    | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型                                                      |
-| `Timeout`     | 无                             | 设定单次访问API超时时间，默认5秒                              |
-| `EnableVless` | `true`,`false`                 | 是否给V2ray启用Vless协议，SSP面板会优先使用远端配置覆盖此选项 |
-| `EnableXTLS`  | `true`,`false`                 | 是否使用XTLS，SSP面板会优先使用远端配置覆盖此选项             |
-
+| 参数          | 选项                           | 说明                                    |
+| ------------- | ------------------------------ | --------------------------------------- |
+| `ApiHost`     | 无                             | 对接前端面板地址                        |
+| `ApiKey`      | 无                             | 前端对接通讯秘钥                        |
+| `NodeID`      | 无                             | 节点ID                                  |
+| `NodeType`    | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型                                |
+| `Timeout`     | 无                             | 设定单次访问API超时时间，默认5秒        |
+| `EnableVless` | `true`,`false`                 | 是否给V2ray启用Vless协议                |
+| `EnableXTLS`  | `true`,`false`                 | 是否使用XTLS                            |
+| `SpeedLimit`  | float                          | 本地限速设置，会覆盖远程设置，0为不启用 |
+| `DeviceLimit` | int                            | 本地设备限制，会覆盖远程设置，0为不启用 |
+| `DeviceLimit` | 无                             | 本地规则设置，指定本地规则文件路径      |
 #### 后端相关配置
 ``` yaml
 ControllerConfig:
@@ -188,11 +199,11 @@ ControllerConfig:
     UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
     EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
 ```
-| 参数         | 选项                                    | 说明                         |
-| ------------ | --------------------------------------- | ---------------------------- |
-| `ListenIP`      | 无| 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4 |
-|`UpdatePeriodic`|无|从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒|
-|`EnableDNS`|`true`,`false`|是否为当前节点启用自定义DNS，默认使用系统DNS|
+| 参数             | 选项           | 说明                                                       |
+| ---------------- | -------------- | ---------------------------------------------------------- |
+| `ListenIP`       | 无             | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4                |
+| `UpdatePeriodic` | 无             | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒 |
+| `EnableDNS`      | `true`,`false` | 是否为当前节点启用自定义DNS，默认使用系统DNS               |
 
 #### 证书申请相关配置
 
@@ -210,11 +221,11 @@ CertConfig:
         ALICLOUD_ACCESS_KEY: aaa
         ALICLOUD_SECRET_KEY: bbb
 ```
-| 参数         | 选项                                    | 说明                         |
-| ------------ | --------------------------------------- | ---------------------------- |
-| `CertMode`      | `none`,`file`,`http`,`dns`| 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。|
-|`CertDomain`|无|申请证书域名|
-|`CertFile`|无|手动指定的证书路径|
-|`KeyFile`|无|手动指定的私钥路径|
-|`Provider`|无|dns提供商，所有支持的dns提供商请在此获取：https://go-acme.github.io/lego/dns/
-|`DNSEnv`|无|采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。|
+| 参数         | 选项                       | 说明                                                                                                                                                                                |
+| ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CertMode`   | `none`,`file`,`http`,`dns` | 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。 |
+| `CertDomain` | 无                         | 申请证书域名                                                                                                                                                                        |
+| `CertFile`   | 无                         | 手动指定的证书路径                                                                                                                                                                  |
+| `KeyFile`    | 无                         | 手动指定的私钥路径                                                                                                                                                                  |
+| `Provider`   | 无                         | dns提供商，所有支持的dns提供商请在此获取：https://go-acme.github.io/lego/dns/                                                                                                       |
+| `DNSEnv`     | 无                         | 采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。                                                  |

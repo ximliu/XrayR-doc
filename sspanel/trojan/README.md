@@ -17,8 +17,6 @@
 示例：gz.aaa.com;port=443#12345|host=hk.aaa.com
 ```
 ## 启用xtls **(此项为实验性功能)**
-在配置后增加`|enable_xtls=true`.
-```
-示例：gz.aaa.com;port=443#12345|host=hk.aaa.com|enable_xtls=true
-```
+在本地设置文件将`EnableXTLS`设为true。
+配置文件详见：[配置文件说明](../config/README.md)
 

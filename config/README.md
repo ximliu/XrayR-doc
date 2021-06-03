@@ -113,7 +113,7 @@ Nodes:
       Timeout: 30 # Timeout for the api request, Default is 5 sec
       EnableVless: false # Enable Vless for V2ray Type
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
-      SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
+      SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
       RuleListPath: # ./rulelist Path to local rulelist file
     ControllerConfig:
@@ -189,7 +189,7 @@ ApiConfig:
 | `Timeout`      | 无                             | 设定单次访问API超时时间，默认5秒                 |
 | `EnableVless`  | `true`,`false`                 | 是否给V2ray启用Vless协议                         |
 | `EnableXTLS`   | `true`,`false`                 | 是否使用XTLS                                     |
-| `SpeedLimit`   | float                          | 本地限速设置，会覆盖远程设置，0为不启用          |
+| `SpeedLimit`   | float                          | 单位Mbps, 本地限速设置，会覆盖远程设置，0为不启用   |
 | `DeviceLimit`  | int                            | 本地设备限制，会覆盖远程设置，0为不启用          |
 | `RuleListPath` | 无                             | 本地规则设置，指定本地规则文件路径，规则文件格式 |
 #### 后端相关配置

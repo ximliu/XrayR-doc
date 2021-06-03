@@ -39,6 +39,16 @@ ip;443;2;tls;ws;path=/xxx|server=域名|host=CDN域名
 ```
 示例：1.3.5.7;443;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
+## ws + tls (Caddy/Nginx) 示例
+交由Caddy或者Nginx处理TLS
+节点配置和 ws+tls一致，在后端配置`CertMode: none`
+```
+ip;443;2;tls;ws;path=/xxx|server=域名|host=CDN域名
+```
+```
+示例：1.3.5.7;443;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+```
+
 ## 中转端口
 在任一配置组合后增加`|outside_port=xxx`,此项为用户连接端口。
 

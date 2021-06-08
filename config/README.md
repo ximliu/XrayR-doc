@@ -24,8 +24,18 @@ Nodes:
       EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
+      SendIP: 0.0.0.0 # IP address you want to send pacakage
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
-      EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
+      EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
+      DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+      EnableProxyProtocol: false # Only works for WebSocket and TCP
+      EnableFallback: false # Only support for Trojan and Vless
+      FallBackConfigs:  # Support multiple fallbacks
+        -
+          SNI: # TLS SNI(Server Name Indication), Empty for any
+          Path: # HTTP PATH, Empty for any
+          Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
@@ -118,8 +128,18 @@ Nodes:
       RuleListPath: # ./rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
+      SendIP: 0.0.0.0 # IP address you want to send pacakage
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
-      EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
+      EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
+      DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+      EnableProxyProtocol: false # Only works for WebSocket and TCP
+      EnableFallback: false # Only support for Trojan and Vless
+      FallBackConfigs:  # Support multiple fallbacks
+        -
+          SNI: # TLS SNI(Server Name Indication), Empty for any
+          Path: # HTTP PATH, Empty for any
+          Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
@@ -195,19 +215,35 @@ ApiConfig:
 #### 后端相关配置
 ``` yaml
 ControllerConfig:
-    ListenIP: 0.0.0.0 # IP address you want to listen
-    UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
-    EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
+  ListenIP: 0.0.0.0 # IP address you want to listen
+  SendIP: 0.0.0.0 # IP address you want to send pacakage
+  UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
+  EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
+  DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+  EnableProxyProtocol: false # Only works for WebSocket and TCP
+  EnableFallback: false # Only support for Trojan and Vless
+  FallBackConfigs:  # Support multiple fallbacks
+    -
+      SNI: # TLS SNI(Server Name Indication), Empty for any
+      Path: # HTTP PATH, Empty for any
+      Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+      ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
-| 参数             | 选项           | 说明                                                       |
-| ---------------- | -------------- | ---------------------------------------------------------- |
-| `ListenIP`       | 无             | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4                |
-| `UpdatePeriodic` | 无             | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒 |
-| `EnableDNS`      | `true`,`false` | 是否为当前节点启用自定义DNS，默认使用系统DNS               |
+| 参数                  | 选项                               | 说明                                                                                                                                 |
+| --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `ListenIP`            | 无                                 | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4                                                                                          |
+| `SendIP`              | 无                                 | 用于发送数据的 IP 地址                                                                                                               |
+| `UpdatePeriodic`      | 无                                 | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒                                                                           |
+| `EnableDNS`           | `true`,`false`                     | 是否为当前节点启用自定义DNS，默认使用系统DNS                                                                                         |
+| `DNSType`             | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
+| `EnableProxyProtocol` | `true`,`false`                     | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效                                                                           |
+| `EnableFallback`      | `true`,`false`                     | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效                                                                                |
+| `FallBackConfigs`     | list                               | Fallback 相关配置，请查看 [Fallback功能说明](../functions/fallback.md)                                                               |
+
 
 #### 证书申请相关配置
 
-XrayR 支持多种自动申请证书配置。申请到的证书将会放在XrayR软件运行目录的`.lego`文件夹下。
+XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配置文件(config.yml)目录的`cert`文件夹下**。
 
 ``` yaml
 CertConfig:

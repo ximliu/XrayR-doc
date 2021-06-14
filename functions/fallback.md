@@ -63,6 +63,7 @@ XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`Fa
 
 XrayR设置
 ```
+EnableFallback: true
 FallBackConfigs:  # Support multiple fallbacks
   -
     SNI:

@@ -59,5 +59,35 @@ XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`Fa
 > 
 > 若你正在 配置 Nginx 接收 PROXY protocol，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
 
+## Fallback 示例
+
+XrayR设置
+```
+FallBackConfigs:  # Support multiple fallbacks
+  -
+    SNI:
+    Path:
+    Dest: 8080
+    ProxyProtocolVer: 0
+```
+Nginx设置
+```
+server {  
+	listen 8080 http2;
+  root /var/www/public; # 改成你自己的路径
+  index index.php index.html;
+  server_name www.test.com; # 改成你自己的域名
+
+  location / {
+    try_files $uri /index.php$is_args$args;
+  }
+
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass 127.0.0.1:9000; # unix:/run/php/php-fpm.sock;
+  }
+}
+```
+
 ## 参考
 [Xray Fallback](https://xtls.github.io/config/fallback/)

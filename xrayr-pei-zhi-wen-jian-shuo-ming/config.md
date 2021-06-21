@@ -1,11 +1,13 @@
 # 配置文件说明
 
 ## 配置文件格式
+
 1. 主配置文件采用`yaml`格式，命名为`xxx.yml`。
 2. 默认XrayR会使用软件运行目录下的`config.yml`作为配置文件。
 
 配置文件基本格式，Nodes下可以同时添加多个面板，多个节点配置信息，只需添加相同格式的Nodes item即可。
-``` yaml
+
+```yaml
 Log:
   Level: none # Log level: none, error, warning, info, debug 
   AccessPath: # ./access.Log
@@ -84,8 +86,10 @@ Nodes:
 ## 配置文件设置说明
 
 ### 基础配置
+
 基础配置是对所有节点生效的配置。
-``` yaml
+
+```yaml
 Log:
   Level: debug # Log level: none, error, warning, info, debug 
   AccessPath: # ./access.Log
@@ -96,62 +100,66 @@ ConnetionConfig:
   ConnIdle: 10 # Connection idle time limit, Second
   UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-  BufferSize: 64 # The internal cache size of each connection, kB 
+  BufferSize: 64 # The internal cache size of each connection, kB
 ```
+
 #### 日志配置
+
 日志配置用于控制XrayR-core的日志级别
-``` yaml
+
+```yaml
 Log:
   Level: debug # Log level: none, error, warning, info, debug 
   AccessPath: # ./access.Log
   ErrorPath: # ./error.log
 ```
-| 参数         | 选项                                    | 说明                         |
-| ------------ | --------------------------------------- | ---------------------------- |
-| `Level`      | `none`,`error`,`warning`,`info`,`debug` | 日志显示级别，`none`为不显示 |
-| `AccessPath` | 无                                      | Access日志的保存路径         |
-| `ErrorPath`  | 无                                      | Error日志的保存路径          |
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `Level` | `none`,`error`,`warning`,`info`,`debug` | 日志显示级别，`none`为不显示 |
+| `AccessPath` | 无 | Access日志的保存路径 |
+| `ErrorPath` | 无 | Error日志的保存路径 |
 
 #### 自定义DNS配置
 
 指定自定义DNS配置文件的路径
 
-``` yaml
+```yaml
 DnsConfigPath: # ./dns.json  Path to dns config
 ```
-| 参数            | 选项 | 说明                    |
-| --------------- | ---- | ----------------------- |
-| `DnsConfigPath` | 无   | 自定义DNS配置文件的路径 |
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `DnsConfigPath` | 无 | 自定义DNS配置文件的路径 |
 
 #### 连接控制
 
 自定义连接释放的相关配置，可以一定程度优化内存占用
 
-``` yaml
+```yaml
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
   UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-  BufferSize: 64 # The internal cache size of each connection, kB 
+  BufferSize: 64 # The internal cache size of each connection, kB
 ```
-| 参数            | 选项 | 说明                    |
-| --------------- | ---- | ----------------------- |
-| `Handshake` | 无   | 连接建立时的握手时间限制。单位为秒。默认值为 4。在入站代理处理一个新连接时，在握手阶段如果使用的时间超过这个时间，则中断该连接。 |
-| `ConnIdle` | 无   | 连接空闲的时间限制。单位为秒。默认值为 10。如果在 `ConnIdle` 时间内，没有任何数据被传输（包括上行和下行数据），则中断该连接。**减少该值有可能可以优化内存占用，但是会导致用户连接延时变高**。 |
-| `UplinkOnly` | 无   | 当连接下行线路关闭后的时间限制。单位为秒。默认值为 2。当服务器（如远端网站）关闭下行连接时，出站代理会在等待`UplinkOnly`时间后中断连接。 |
-| `DownlinkOnly` | 无   | 当连接上行线路关闭后的时间限制。单位为秒。默认值为 4。当服务器（如远端网站）关闭上行连接时，出站代理会在等待`DownlinkOnly`时间后中断连接。 |
-| `BufferSize` | 无   | 每个连接的内部缓存大小。单位为 kB。当值为 0 时，内部缓存被禁用。**减少该值有可能可以优化内存占用，但有可能导致CPU占用上升** |
 
-提示：
-1. 减少`ConnIdle`有可能可以优化高连接数量时的内存占用，但是会导致用户连接延时变高。
-2. 在 HTTP 浏览的场景中，可以将 `UplinkOnly` 和 `DownlinkOnly` 设为 0，以提高连接关闭的效率，减少内存占用。
-3. 减少`BufferSize`可以优化内存占用，但是可能会导致CPU占用上升。
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `Handshake` | 无 | 连接建立时的握手时间限制。单位为秒。默认值为 4。在入站代理处理一个新连接时，在握手阶段如果使用的时间超过这个时间，则中断该连接。 |
+| `ConnIdle` | 无 | 连接空闲的时间限制。单位为秒。默认值为 10。如果在 `ConnIdle` 时间内，没有任何数据被传输（包括上行和下行数据），则中断该连接。**减少该值有可能可以优化内存占用，但是会导致用户连接延时变高**。 |
+| `UplinkOnly` | 无 | 当连接下行线路关闭后的时间限制。单位为秒。默认值为 2。当服务器（如远端网站）关闭下行连接时，出站代理会在等待`UplinkOnly`时间后中断连接。 |
+| `DownlinkOnly` | 无 | 当连接上行线路关闭后的时间限制。单位为秒。默认值为 4。当服务器（如远端网站）关闭上行连接时，出站代理会在等待`DownlinkOnly`时间后中断连接。 |
+| `BufferSize` | 无 | 每个连接的内部缓存大小。单位为 kB。当值为 0 时，内部缓存被禁用。**减少该值有可能可以优化内存占用，但有可能导致CPU占用上升** |
+
+提示： 1. 减少`ConnIdle`有可能可以优化高连接数量时的内存占用，但是会导致用户连接延时变高。 2. 在 HTTP 浏览的场景中，可以将 `UplinkOnly` 和 `DownlinkOnly` 设为 0，以提高连接关闭的效率，减少内存占用。 3. 减少`BufferSize`可以优化内存占用，但是可能会导致CPU占用上升。
 
 ### 节点配置
 
 每个节点是一个独立的配置，互相不会影响，XrayR支持单实例多节点启动，同时对接多个节点。
-``` yaml
+
+```yaml
 Nodes:
   -
     PanelType: "SSpanel" # Panel type: SSpanel, V2board, PMpanel
@@ -218,16 +226,20 @@ Nodes:
           ALICLOUD_ACCESS_KEY: aaa
           ALICLOUD_SECRET_KEY: bbb
 ```
+
 #### 面板选择
-``` yaml
+
+```yaml
 PanelType: "V2board" # Panel type: SSpanel, V2board, , PMpanel
 ```
-| 参数        | 选项                | 说明             |
-| ----------- | ------------------- | ---------------- |
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
 | `PanelType` | `SSPanel`,`V2board`,`PMpanel` | 对接前端面板类型 |
 
 #### 面板对接配置
-``` yaml
+
+```yaml
 ApiConfig:
     ApiHost: "http://127.0.0.1:667"
     ApiKey: "123"
@@ -240,20 +252,23 @@ ApiConfig:
     DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
     RuleListPath: # ./rulelist Path to local rulelist file
 ```
-| 参数           | 选项                           | 说明                                             |
-| -------------- | ------------------------------ | ------------------------------------------------ |
-| `ApiHost`      | 无                             | 对接前端面板地址                                 |
-| `ApiKey`       | 无                             | 前端对接通讯秘钥                                 |
-| `NodeID`       | 无                             | 节点ID                                           |
-| `NodeType`     | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型                                         |
-| `Timeout`      | 无                             | 设定单次访问API超时时间，默认5秒                 |
-| `EnableVless`  | `true`,`false`                 | 是否给V2ray启用Vless协议                         |
-| `EnableXTLS`   | `true`,`false`                 | 是否使用XTLS                                     |
-| `SpeedLimit`   | float                          | 单位Mbps, 本地限速设置，会覆盖远程设置，0为不启用   |
-| `DeviceLimit`  | int                            | 本地设备限制，会覆盖远程设置，0为不启用          |
-| `RuleListPath` | 无                             | 本地规则设置，指定本地规则文件路径，规则文件格式 |
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `ApiHost` | 无 | 对接前端面板地址 |
+| `ApiKey` | 无 | 前端对接通讯秘钥 |
+| `NodeID` | 无 | 节点ID |
+| `NodeType` | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型 |
+| `Timeout` | 无 | 设定单次访问API超时时间，默认5秒 |
+| `EnableVless` | `true`,`false` | 是否给V2ray启用Vless协议 |
+| `EnableXTLS` | `true`,`false` | 是否使用XTLS |
+| `SpeedLimit` | float | 单位Mbps, 本地限速设置，会覆盖远程设置，0为不启用 |
+| `DeviceLimit` | int | 本地设备限制，会覆盖远程设置，0为不启用 |
+| `RuleListPath` | 无 | 本地规则设置，指定本地规则文件路径，规则文件格式 |
+
 #### 后端相关配置
-``` yaml
+
+```yaml
 ControllerConfig:
   ListenIP: 0.0.0.0 # IP address you want to listen
   SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -269,23 +284,23 @@ ControllerConfig:
       Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
       ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
-| 参数                  | 选项                               | 说明                                                                                                                                 |
-| --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `ListenIP`            | 无                                 | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4                                                                                          |
-| `SendIP`              | 无                                 | 用于发送数据的 IP 地址                                                                                                               |
-| `UpdatePeriodic`      | 无                                 | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒                                                                           |
-| `EnableDNS`           | `true`,`false`                     | 是否为当前节点启用自定义DNS，默认使用系统DNS                                                                                         |
-| `DNSType`             | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
-| `EnableProxyProtocol` | `true`,`false`                     | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效                                                                           |
-| `EnableFallback`      | `true`,`false`                     | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效                                                                                |
-| `FallBackConfigs`     | list                               | Fallback 相关配置，请查看 [Fallback功能说明](../functions/fallback.md)                                                               |
 
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `ListenIP` | 无 | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4 |
+| `SendIP` | 无 | 用于发送数据的 IP 地址 |
+| `UpdatePeriodic` | 无 | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒 |
+| `EnableDNS` | `true`,`false` | 是否为当前节点启用自定义DNS，默认使用系统DNS |
+| `DNSType` | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
+| `EnableProxyProtocol` | `true`,`false` | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效 |
+| `EnableFallback` | `true`,`false` | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效 |
+| `FallBackConfigs` | list | Fallback 相关配置，请查看 [Fallback功能说明](../gong-neng-shuo-ming/fallback.md) |
 
 #### 证书申请相关配置
 
-XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配置文件(config.yml)目录的`cert`文件夹下**。
+XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配置文件\(config.yml\)目录的`cert`文件夹下**。
 
-``` yaml
+```yaml
 CertConfig:
     CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
     CertDomain: "node2.test.com" # Domain to cert
@@ -297,11 +312,13 @@ CertConfig:
         ALICLOUD_ACCESS_KEY: aaa
         ALICLOUD_SECRET_KEY: bbb
 ```
-| 参数         | 选项                       | 说明                                                                                                                                                                                |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CertMode`   | `none`,`file`,`http`,`dns` | 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。 |
-| `CertDomain` | 无                         | 申请证书域名                                                                                                                                                                        |
-| `CertFile`   | 无                         | 手动指定的证书路径                                                                                                                                                                  |
-| `KeyFile`    | 无                         | 手动指定的私钥路径                                                                                                                                                                  |
-| `Provider`   | 无                         | dns提供商，所有支持的dns提供商请在此获取：https://go-acme.github.io/lego/dns/                                                                                                       |
-| `DNSEnv`     | 无                         | 采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。                                                  |
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `CertMode` | `none`,`file`,`http`,`dns` | 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。 |
+| `CertDomain` | 无 | 申请证书域名 |
+| `CertFile` | 无 | 手动指定的证书路径 |
+| `KeyFile` | 无 | 手动指定的私钥路径 |
+| `Provider` | 无 | dns提供商，所有支持的dns提供商请在此获取：[https://go-acme.github.io/lego/dns/](https://go-acme.github.io/lego/dns/) |
+| `DNSEnv` | 无 | 采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。 |
+

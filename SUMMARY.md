@@ -28,4 +28,5 @@
 * [自动申请证书说明](functions/cert.md)
 * [Fallback 功能说明](functions/fallback.md)
 
-
+## 杂项
+* [内存优化相关](misc/memOpt.md)

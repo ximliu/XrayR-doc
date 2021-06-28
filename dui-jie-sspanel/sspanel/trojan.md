@@ -7,7 +7,7 @@
 ## SSpanel-uim 节点地址格式
 
 ```text
-域名或IP;port=监听端口#用户连接端口|host=xx
+域名或IP;port=用户连接端口#监听端口|host=xx
 ```
 
 ## 直连示例
@@ -17,6 +17,8 @@
 ```
 
 ## 中转示例
+
+用户连接443，XrayR监听12345
 
 ```text
 示例：gz.aaa.com;port=443#12345|host=hk.aaa.com

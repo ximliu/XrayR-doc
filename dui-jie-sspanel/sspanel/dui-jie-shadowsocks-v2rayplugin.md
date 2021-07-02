@@ -61,7 +61,7 @@ SSpanel-uim建议安卓，WIN和Mac使用Clash，IOS使用Shadowrocket获取含�
 同时设置outside\_port为Nginx监听端口，转发到12345为XrayR监听端口。可以在后端配置`ListenIP: 127.0.0.1`监听本地端口。
 
 ```text
-ip;12345;;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
+ip;12345;;ws;tls;path=/xxx|server=域名|host=CDN域名|outside_port=443
 ```
 
 ```text

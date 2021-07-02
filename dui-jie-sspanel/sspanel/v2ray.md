@@ -58,12 +58,14 @@ ip;443;2;tls;ws;path=/xxx|server=域名|host=CDN域名
 
 交由Caddy或者Nginx处理TLS 节点配置和 ws+tls一致，在后端配置`CertMode: none`
 
+同时设置outside\_port为Caddy/Nginx监听端口，转发到12345为XrayR监听端口。可以在后端配置`ListenIP: 127.0.0.1`监听本地端口。
+
 ```text
-ip;443;2;tls;ws;path=/xxx|server=域名|host=CDN域名
+ip;12345;2;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 ```
 
 ```text
-示例：1.3.5.7;443;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
 
 ## 中转端口

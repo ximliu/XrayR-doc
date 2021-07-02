@@ -2,7 +2,7 @@
 
 | 协议 | 支持情况 | 加密方法 |
 | :--- | :--- | :--- |
-| ShadowsocksAEAD | √ | aes-128-gcm, aes-256-gcm, chacha20-poly1305 |
+| ShadowsocksAEAD | √ | aes-128-gcm, aes-256-gcm, chacha20-ietf-poly1305 |
 
 ## SSpanel-uim 节点地址格式
 

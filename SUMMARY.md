@@ -19,10 +19,15 @@
   * [对接V2ray](dui-jie-sspanel/sspanel/v2ray.md)
   * [对接Trojan](dui-jie-sspanel/sspanel/trojan.md)
   * [对接Shadowsocks](dui-jie-sspanel/sspanel/shadowsocks.md)
+  * [对接Shadowsocks - V2Ray-Plugin](dui-jie-sspanel/sspanel/dui-jie-shadowsocks-v2rayplugin.md)
 
 ## 对接V2board
 
 * [基本对接配置](dui-jie-v2board/v2board.md)
+
+## 对接PMPanel
+
+* [基本对接配置](dui-jie-pmpanel/ji-ben-dui-jie-pei-zhi.md)
 
 ## 功能说明
 
@@ -36,4 +41,5 @@
 ## 杂项
 
 * [内存优化相关](za-xiang/memopt.md)
+* [为什么要引入Shadowsocks - V2Ray-Plugin](za-xiang/wei-shen-me-yao-yin-ru-shadowsocks-v2rayplugin.md)
 

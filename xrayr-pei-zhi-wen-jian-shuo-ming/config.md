@@ -26,7 +26,7 @@ Nodes:
       ApiHost: "http://127.0.0.1:667"
       ApiKey: "123"
       NodeID: 41
-      NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan
+      NodeType: V2ray # Node type: V2ray, Trojan, Shadowsocks, Shadowsocks-Plugin
       Timeout: 30 # Timeout for the api request
       EnableVless: false # Enable Vless for V2ray Type
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
@@ -167,7 +167,7 @@ Nodes:
       ApiHost: "http://127.0.0.1:667"
       ApiKey: "123"
       NodeID: 41
-      NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan
+      NodeType: V2ray # Node type: V2ray, Trojan, Shadowsocks, Shadowsocks-Plugin
       Timeout: 30 # Timeout for the api request, Default is 5 sec
       EnableVless: false # Enable Vless for V2ray Type
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
@@ -244,7 +244,7 @@ ApiConfig:
     ApiHost: "http://127.0.0.1:667"
     ApiKey: "123"
     NodeID: 41
-    NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan
+    NodeType: V2ray # Node type: V2ray, Trojan, Shadowsocks, Shadowsocks-Plugin
     Timeout: 30 # Timeout for the api request, Default is 5 sec
     EnableVless: false # Enable Vless for V2ray Type
     EnableXTLS: false # Enable XTLS for V2ray and Trojan
@@ -258,7 +258,7 @@ ApiConfig:
 | `ApiHost` | 无 | 对接前端面板地址 |
 | `ApiKey` | 无 | 前端对接通讯秘钥 |
 | `NodeID` | 无 | 节点ID |
-| `NodeType` | `V2ray`,`Shadowsocks`,`Trojan` | 节点类型 |
+| `NodeType` | `V2ray`,`Shadowsocks`, `Shadowsocks-Plugin`,`Trojan` | 节点类型 |
 | `Timeout` | 无 | 设定单次访问API超时时间，默认5秒 |
 | `EnableVless` | `true`,`false` | 是否给V2ray启用Vless协议 |
 | `EnableXTLS` | `true`,`false` | 是否使用XTLS |

@@ -50,6 +50,10 @@ $return_array['path'] = ($return_array['path'] . '?redirect=' . $user->getMuMd5(
 // $return_array['path'] = ($return_array['path'] . '?redirect=' . $user->getMuMd5());
 ```
 
+## SSpanel-uim 订阅
+
+SSpanel-uim建议安卓，WIN和Mac使用Clash，IOS使用Shadowrocket获取含有Shadowsocks - V2Ray-Plugin的订阅。
+
 ## ws + tls \(Nginx\) 示例（**推荐**）
 
 交由Caddy或者Nginx处理TLS 节点配置和 ws+tls一致，在后端配置`CertMode: none`

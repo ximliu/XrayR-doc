@@ -2,7 +2,7 @@
 
 ## Update on 2021/07/04
 
-我错怪Trojan了，通过后端禁用TLS，配合Nginx的Stream模块也可以实现，Nginx代理处理Trojan的TLS，达到隐藏TLS握手信息的效果，同时可以借助SNI进行分流。如果能解决fallback问题，Trojan有着比Shadowsocks - V2Ray-Plugin更好的性能
+我错怪Trojan了，通过后端禁用TLS，配合Nginx的Stream模块也可以实现，Nginx代理处理Trojan的TLS，达到隐藏TLS握手信息的效果，同时可以fallback到http1.1的站点达到比SS更高的性能水平。
 
 ## 原文
 

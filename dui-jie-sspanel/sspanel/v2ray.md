@@ -47,7 +47,7 @@ ip;80;2;ws;;path=/xxx|server=域名|host=CDN域名
 ## ws + tls 示例
 
 ```text
-ip;443;2;tls;ws;path=/xxx|server=域名|host=CDN域名
+ip;443;2;ws;tls;path=/xxx|server=域名|host=CDN域名
 ```
 
 ```text

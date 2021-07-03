@@ -91,11 +91,11 @@ ip;12345;;ws;;path=/xxx|host=xxxx.com|server=xxx.com
 ## simple\_obfs\_http示例
 
 ```text
-ip;12345;;obfs;;server=xxx.com
+ip;12345;;obfs;http;server=xxx.com
 ```
 
 ```text
-示例：1.3.5.7;12345;;obfs;;server=hk.domain.com
+示例：1.3.5.7;12345;;obfs;http;server=hk.domain.com
 ```
 
 ## simple\_obfs\_tls示例

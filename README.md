@@ -51,6 +51,6 @@ A Xray backend framework that can easily support many panels.
 
 | 前端 | v2ray | trojan | shadowsocks |
 | :--- | :--- | :--- | :--- |
-| sspanel-uim | √ | √ | √ \(Shadowsocks - 单端口多用户\) |
+| sspanel-uim | √ | √ | √ \(单端口多用户和V2ray-Plugin\) |
 | v2board | √ | √ | √ |
 

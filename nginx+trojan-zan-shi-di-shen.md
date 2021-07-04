@@ -144,9 +144,9 @@ CertMode: none
 ## 重启并检查 Nginx 和 XrayR
 
 <p>systemctl restart nginx<br />
-systemctl restart xray</p>
+XrayR restart</p>
 
 <p>systemctl status nginx<br />
-systemctl status xray</p>
+XrayR restart</p>
 
 

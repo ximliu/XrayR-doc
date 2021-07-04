@@ -42,8 +42,5 @@
 
 * [内存优化相关](za-xiang/memopt.md)
 * [为什么要引入Shadowsocks - V2Ray-Plugin](za-xiang/wei-shen-me-yao-yin-ru-shadowsocks-v2rayplugin.md)
-
----
-
-* [Nginx+Trojan暂时滴神！](nginx+trojan-zan-shi-di-shen.md)
+* [Nginx+Trojan暂时滴神！](za-xiang/nginx+trojan-zan-shi-di-shen.md)
 

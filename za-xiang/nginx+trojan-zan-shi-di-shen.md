@@ -2,19 +2,16 @@
 
 使用Nginx处理Trojan的TLS，Trojan进行回落。我愿称他暂时滴神！
 
-
 ## Nginx安装
 
-<p>CentOS：<br />
-yum update<br />
-yum install -y nginx<br />
-yum install nginx-mod-stream</p>
+CentOS：  
+ yum update  
+ yum install -y nginx  
+ yum install nginx-mod-stream
 
-<p>Ubuntu:<br />
-apt update<br />
-apt install nginx</p>
-
-
+Ubuntu:  
+ apt update  
+ apt install nginx
 
 ## Nginx配置
 
@@ -26,7 +23,7 @@ stream {
         listen              443 ssl;                    # 设置监听端口为443
 
         ssl_protocols       TLSv1.2 TLSv1.3;      # 设置使用的SSL协议版本
-        
+
         ssl_certificate /etc/nginx/ssl/xx.com.pem; # 证书地址
         ssl_certificate_key /etc/nginx/ssl/xx.com.key; # 秘钥地址
         ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为
@@ -37,14 +34,15 @@ stream {
     }
 }
 ```
-<p>请将上方代码添加到<strong>http</strong>与<strong>events</strong>中间一行</p>
+
+请将上方代码添加到**http**与**events**中间一行
 
 **/etc/nginx/nginx.conf配置文件参考：**
 
 ```text
 events {
-	worker_connections 768;
-	# multi_accept on;
+    worker_connections 768;
+    # multi_accept on;
 }
 
 stream {
@@ -52,7 +50,7 @@ stream {
         listen              443 ssl;                    # 设置监听端口为443
 
         ssl_protocols       TLSv1.2 TLSv1.3;      # 设置使用的SSL协议版本
-        
+
         ssl_certificate /etc/nginx/ssl/xx.com.pem; # 证书地址
         ssl_certificate_key /etc/nginx/ssl/xx.com.key; # 秘钥地址
         ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为
@@ -65,19 +63,18 @@ stream {
 
 http {
 
-	##
-	# Basic Settings
-	##
+    ##
+    # Basic Settings
+    ##
 ```
 
-<p><strong>注意事项：</strong></p>
+**注意事项：**
 
-<p><strong>1. 请配置SSL证书</strong></p>
+**1. 请配置SSL证书**
 
-<p><strong>2. proxy_pass 127.0.0.1:1234 后端Trojan监听端口与您网站前端节点监听端口一致</strong></p>
+**2. proxy\_pass 127.0.0.1:1234 后端Trojan监听端口与您网站前端节点监听端口一致**
 
-<p><strong>3. listen端口可以1-65535随意修改，此处为客户端连接端口</strong></p>
-
+**3. listen端口可以1-65535随意修改，此处为客户端连接端口**
 
 ## XrayR Trojan配置
 
@@ -140,13 +137,11 @@ CertMode: none
           ALICLOUD_SECRET_KEY: bbb
 ```
 
-
 ## 重启并检查 Nginx 和 XrayR
 
-<p>systemctl restart nginx<br />
-XrayR restart</p>
+systemctl restart nginx  
+ XrayR restart
 
-<p>systemctl status nginx<br />
-XrayR restart</p>
-
+systemctl status nginx  
+ XrayR restart
 

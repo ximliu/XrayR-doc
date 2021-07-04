@@ -6,7 +6,7 @@
 ## Nginx安装
 
 <p>CentOS：<br />
-apt update<br />
+yum update<br />
 yum install -y nginx<br />
 yum install nginx-mod-stream</p>
 

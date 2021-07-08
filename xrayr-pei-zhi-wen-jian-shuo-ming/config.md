@@ -21,7 +21,7 @@ ConnetionConfig:
   BufferSize: 64 # The internal cache size of each connection, kB 
 Nodes:
   -
-    PanelType: "SSpanel" # Panel type: SSpanel, V2board, PMpanel
+    PanelType: "SSpanel" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
     ApiConfig:
       ApiHost: "http://127.0.0.1:667"
       ApiKey: "123"
@@ -230,12 +230,12 @@ Nodes:
 #### 面板选择
 
 ```yaml
-PanelType: "V2board" # Panel type: SSpanel, V2board, , PMpanel
+PanelType: "V2board" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
 ```
 
 | 参数 | 选项 | 说明 |
 | :--- | :--- | :--- |
-| `PanelType` | `SSPanel`,`V2board`,`PMpanel` | 对接前端面板类型 |
+| `PanelType` | `SSPanel`,`V2board`,`PMpanel`,`Proxypanel` | 对接前端面板类型 |
 
 #### 面板对接配置
 

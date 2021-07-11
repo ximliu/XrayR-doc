@@ -56,3 +56,23 @@ A Xray backend framework that can easily support many panels.
 | [PMPanel](https://github.com/ByteInternetHK/PMPanel) | √ | × | √ |
 | [ProxyPanel](https://github.com/ProxyPanel/ProxyPanel) | √ | √ | × |
 
+## V2ray支持协议
+
+| 协议 | 支持情况 |
+| :--- | :--- |
+| VMess | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VMessAEAD | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VLess | tcp, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
+
+## Trojan支持协议
+
+| 协议 | 支持情况 |
+| :--- | :--- |
+| Trojan | √ |
+
+## Shadowsocks支持协议
+
+| 协议 | 支持情况 | 加密方法 |
+| :--- | :--- | :--- |
+| ShadowsocksAEAD | √ | aes-128-gcm, aes-256-gcm, chacha20-ietf-poly1305 |
+

@@ -2,9 +2,9 @@
 
 | 协议 | 支持情况 |
 | :--- | :--- |
-| VMess | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls |
-| VMessAEAD | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls |
-| VLess | tcp, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls |
+| VMess | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VMessAEAD | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VLess | tcp, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
 
 ## SSpanel-uim 节点地址格式
 
@@ -14,7 +14,7 @@ IP;监听端口;alterId;(tcp或ws);(tls或不填);path=/xxx|host=xxxx.com|server
 
 alterId设为0，则自动启用VMessAEAD。
 
-## TCP示例
+## tcp示例
 
 ```text
 ip;12345;2;tcp;;server=域名
@@ -66,6 +66,26 @@ ip;12345;2;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 
 ```text
 示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+```
+
+## grpc示例
+
+```text
+ip;12345;2;grpc;;server=域名
+```
+
+```text
+示例：1.3.5.7;12345;2;grpc;;server=hk.domain.com
+```
+
+## grpc+tls示例
+
+```text
+ip;12345;2;grpc;tls;server=域名
+```
+
+```text
+示例：1.3.5.7;12345;2;grpc;tls;server=hk.domain.com
 ```
 
 ## 中转端口

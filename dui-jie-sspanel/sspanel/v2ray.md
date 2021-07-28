@@ -68,29 +68,21 @@ ip;12345;2;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
 
-## grpc示例
-
-```text
-ip;12345;2;grpc;;server=域名
-```
-
-```text
-示例：1.3.5.7;12345;2;grpc;;server=hk.domain.com
-```
-
 ## grpc+tls示例
 
+使用grpc建议升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
+
 ```text
-ip;12345;2;grpc;tls;server=域名
+ip;12345;2;grpc;tls;host=域名|server=域名|servicename=域名
 ```
 
 ```text
-示例：1.3.5.7;12345;2;grpc;tls;server=hk.domain.com
+示例：1.3.5.7;12345;2;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
 ```
 
 ## 中转端口
 
-在任一配置组合后增加`|outside_port=xxx`,此项为用户连接端口。
+在任一配置组\|合后增加`|outside_port=xxx`,此项为用户连接端口。
 
 XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配置文件中设置监听ip为`127.0.0.1`。
 

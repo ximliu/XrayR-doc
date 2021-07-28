@@ -1,8 +1,8 @@
 # 对接Trojan
 
-| 协议 | 支持情况 |
-| :--- | :--- |
-| Trojan | √ |
+| 协议 | 支持情况 | 支持协议 |
+| :--- | :--- | :--- |
+| Trojan | √ | tcp, grpc |
 
 ## SSpanel-uim 节点地址格式
 
@@ -10,10 +10,18 @@
 域名或IP;port=用户连接端口#监听端口|host=xx
 ```
 
-## 直连示例
+## tcp示例
 
 ```text
 示例：gz.aaa.com;port=443|host=gz.aaa.com
+```
+
+## grpc示例
+
+使用trojan+grpc请升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
+
+```text
+示例：gz.aaa.com;port=443|host=gz.aaa.com|grpc=1|servicename=gz.aaa.com
 ```
 
 ## 中转示例

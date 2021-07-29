@@ -90,17 +90,33 @@ XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配�
 示例：1.3.5.7;80;2;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com|outside_port=12345
 ```
 
-## 启用Vless **\(此项为实验性功能\)**
+## 启用Vless
 
 此项为实验性功能，请确保您使用的面板已经支持下发vless订阅，否则请手动配置客户端。
 
-在本地设置文件将`EnableVless`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)后支持vless订阅下发
+
+在任意协议配置后增加`enable_vless=true`
+
+```text
+示例：hk.domain.com;12345;2;tcp;(tls或xtls);server=hk.domain.com|enable_vless=true
+```
+
+同时在本地设置文件将`EnableVless`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 
 请开启vless同时务必使用tls或者xtls。
 
-## 启用xtls **\(此项为实验性功能\)**
+## 启用xtls
 
 此项为实验性功能，请确保您使用的面板已经支持下发带有xtls的订阅，否则请手动配置客户端。
 
-在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)后支持xtls订阅下发
+
+将任意协议配置中的`tls`替换成`xtls`，如果xtls有流控flow，则在最后增加: `|flow=flow-vlaue`
+
+```text
+示例：hk.domain.com;443;2;tcp;xtls;server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
+```
+
+同时在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 

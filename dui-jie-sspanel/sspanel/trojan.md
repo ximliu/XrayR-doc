@@ -34,5 +34,13 @@
 
 ## 启用xtls **\(此项为实验性功能\)**
 
-在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](https://github.com/XrayR-project/XrayR-doc/tree/af55d4cc45735ca8d00491aa97f8cbbd97c8faf4/sspanel/config/README.md)
+sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)后支持xtls订阅下发
+
+将任意协议配置中添加`enable_xtls=true`，如果xtls有流控flow，则在最后增加: `flow=flow-vlaue`
+
+```text
+示例：gz.aaa.com;port=443|host=gz.aaa.com|enable_xtls=true|flow=xtls-rprx-direct
+```
+
+同时在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](https://github.com/XrayR-project/XrayR-doc/tree/af55d4cc45735ca8d00491aa97f8cbbd97c8faf4/sspanel/config/README.md)
 

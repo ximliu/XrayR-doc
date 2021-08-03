@@ -27,24 +27,9 @@ XrayR支持为不同节点设置不同的DNS策略，具体方法如下：
 ## 设置IPV6优先
 
 1. 请先确保主机有ipv6地址，如无，请考虑使用[warp](https://github.com/P3TERX/warp.sh)获取ipv6。
-2. 设置dns.json文件
-3. 在`config.yml`中配置`DnsConfigPath`为dns.json的路径。
-4. 在所需要设置IPV6优先的节点中，将`EnableDNS`设为true。
-5. 在所需要设置IPV6优先的节点中，将`SendIP`设为`"::"`。
-6. 在所需要设置IPV6优先的节点中，将`DNSType`设为`UseIP`。
+2. 在所需要设置IPV6优先的节点中，将`EnableDNS`设为true。
+3. 在所需要设置IPV6优先的节点中，将`SendIP`设为`"::"`。
+4. 在所需要设置IPV6优先的节点中，将`DNSType`设为`UseIP`。
 
 至此，XrayR将会优先使用目标网站的ipv6地址进行访问，不会影响默认ipv4站点的访问。~~可以用于解锁Netflix等需求~~
-
-dns.json文件示例
-
-```javascript
-{
-    "servers": [
-        "1.1.1.1",
-        "8.8.8.8",
-        "localhost"
-    ],
-    "tag": "dns_inbound"
-}
-```
 

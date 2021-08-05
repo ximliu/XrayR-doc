@@ -1,17 +1,23 @@
 # Nginx+Trojan暂时滴神！
 
-使用Nginx处理Trojan的TLS，Trojan进行回落。我愿称他暂时滴神！
+使用Nginx处理Trojan的TLS，Trojan进行回落。我愿称ta暂时滴神！
 
 ## Nginx安装
 
-CentOS：  
- yum update  
- yum install -y nginx  
- yum install nginx-mod-stream
+CentOS：
 
-Ubuntu:  
- apt update  
+```text
+ yum update
+ yum install -y nginx
+ yum install nginx-mod-stream
+```
+
+Ubuntu/Debian:
+
+```text
+ apt update
  apt install nginx
+```
 
 ## Nginx配置
 
@@ -139,9 +145,13 @@ CertMode: none
 
 ## 重启并检查 Nginx 和 XrayR
 
-systemctl restart nginx  
- XrayR restart
+```text
+systemctl restart nginx
+XrayR restart
+```
 
-systemctl status nginx  
- XrayR restart
+```text
+systemctl status nginx
+XrayR status
+```
 

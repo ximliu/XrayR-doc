@@ -32,7 +32,7 @@ IP;监听端口;;(ws或obfs);(tls或不填);path=/xxx|host=xxxx.com|server=xxx.c
 
 SSpanel-uim关于Shadowsocks - V2Ray-Plugin的代码存在部分问题，需要加以修改才能正确下发订阅。
 
-此方法写于SSpanel[此版](https://github.com/Anankke/SSPanel-Uim/commit/822d3cbcb3ad8f7e11874a96f05d73e5b016c164)，不保证后续仍然生效。
+此方法写于 [SSPanel-Uim@822d3c](https://github.com/Anankke/SSPanel-Uim/commit/822d3cbcb3ad8f7e11874a96f05d73e5b016c164)，不保证后续仍然生效。
 
 ### 修改方法
 

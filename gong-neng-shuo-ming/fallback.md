@@ -25,7 +25,7 @@ ControllerConfig:
 
 ## 配置Fallback
 
-XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`FallBackConfigs`为一个数组，每个一个子元素示例如下：
+XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`FallBackConfigs`为一个数组，每个子元素示例如下：
 
 ```yaml
 -

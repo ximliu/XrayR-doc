@@ -60,9 +60,9 @@ A Xray backend framework that can easily support many panels.
 
 | 协议 | 支持情况 |
 | :--- | :--- |
-| VMess | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
-| VMessAEAD | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
-| VLess | tcp, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
+| VMess | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VMessAEAD | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VLess | tcp, tcp+http, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
 
 ## Trojan支持协议
 

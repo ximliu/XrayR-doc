@@ -6,3 +6,31 @@
 
 配置文件详见：[配置文件说明](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
 
+### 对接vmess+grpc
+
+为了成功支持clash连接，在对接vmess+grpc时，v2board需要在传输协议配置中增加如下内容：
+
+```text
+{
+  "serviceName": "host",
+}
+```
+
+，其中`"name"`换成你的域名，或其他sni分流域名
+
+### 对接vmess+tcp+http
+
+在对接vmess+tcp+http时，v2board需要在传输协议配置中增加如下内容：
+
+```text
+{
+  "header": {
+    "type": "http",
+    "request": {}
+    "response": {}
+  }
+}
+```
+
+其中`request`和`response`中的内容请自行参照[Xray-core文档](https://xtls.github.io/config/transports/tcp/)设置。
+

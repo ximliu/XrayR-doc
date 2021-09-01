@@ -12,7 +12,9 @@ Log:
   Level: none # Log level: none, error, warning, info, debug 
   AccessPath: # ./access.Log
   ErrorPath: # ./error.log
-DnsConfigPath: # ./dns.json Path to dns config
+DnsConfigPath: # ./dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
+RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -39,6 +41,8 @@ Nodes:
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
       EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
       DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+      DisableUploadTraffic: false # Disable Upload Traffic to the panel
+      DisableGetRule: false # Disable Get Rule from the panel 
       EnableProxyProtocol: false # Only works for WebSocket and TCP
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
@@ -94,7 +98,9 @@ Log:
   Level: debug # Log level: none, error, warning, info, debug 
   AccessPath: # ./access.Log
   ErrorPath: # ./error.log
-DnsConfigPath: # ./dns.json  Path to dns config
+DnsConfigPath: # ./dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
+RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -131,6 +137,30 @@ DnsConfigPath: # ./dns.json  Path to dns config
 | 参数 | 选项 | 说明 |
 | :--- | :--- | :--- |
 | `DnsConfigPath` | 无 | 自定义DNS配置文件的路径 |
+
+#### 自定义路由配置
+
+指定路由配置文件文件路径
+
+```yaml
+RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+```
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `RouteConfigPath` | 无 | 自定义路由配置文件的路径 |
+
+#### 自定义出口配置
+
+指定出口配置文件文件路径
+
+```yaml
+OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+```
+
+| 参数 | 选项 | 说明 |
+| :--- | :--- | :--- |
+| `OutboundConfigPath` | 无 | 自定义出口配置文件的路径 |
 
 #### 连接控制
 
@@ -180,6 +210,8 @@ Nodes:
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
       EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
       DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+      DisableUploadTraffic: false # Disable Upload Traffic to the panel
+      DisableGetRule: false # Disable Get Rule from the panel 
       EnableProxyProtocol: false # Only works for WebSocket and TCP
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
@@ -275,6 +307,8 @@ ControllerConfig:
   UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
   EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
   DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
+  DisableUploadTraffic: false # Disable Upload Traffic to the panel
+  DisableGetRule: false # Disable Get Rule from the panel 
   EnableProxyProtocol: false # Only works for WebSocket and TCP
   EnableFallback: false # Only support for Trojan and Vless
   FallBackConfigs:  # Support multiple fallbacks
@@ -292,6 +326,8 @@ ControllerConfig:
 | `UpdatePeriodic` | 无 | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒 |
 | `EnableDNS` | `true`,`false` | 是否为当前节点启用自定义DNS，默认使用系统DNS |
 | `DNSType` | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
+| `DisableUploadTraffic` | `false`, `true` | 是否禁止上传节点流量，默认`false` |
+| `DisableGetRule` | `false`, `true` | 是否禁止获取远程规则，默认`false` |
 | `EnableProxyProtocol` | `true`,`false` | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效 |
 | `EnableFallback` | `true`,`false` | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效 |
 | `FallBackConfigs` | list | Fallback 相关配置，请查看 [Fallback功能说明](../gong-neng-shuo-ming/fallback.md) |

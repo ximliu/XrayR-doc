@@ -2,9 +2,9 @@
 
 | 协议 | 支持情况 |
 | :--- | :--- |
-| VMess | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
-| VMessAEAD | tcp, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
-| VLess | tcp, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
+| VMess | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VMessAEAD | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
+| VLess | tcp, tcp+http, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
 
 ## SSpanel-uim 节点地址格式
 
@@ -22,6 +22,18 @@ ip;12345;2;tcp;;server=域名
 
 ```text
 示例：1.3.5.7;12345;2;tcp;;server=hk.domain.com
+```
+
+## tcp+http示例
+
+注意sspanel并不支持此类订阅下发，此选项只供开启后端http混淆。
+
+```text
+ip;12345;2;tcp;;server=域名;headertype=http
+```
+
+```text
+示例：1.3.5.7;12345;2;tcp;;server=hk.domain.com;headertype=http
 ```
 
 ## tcp + tls 示例

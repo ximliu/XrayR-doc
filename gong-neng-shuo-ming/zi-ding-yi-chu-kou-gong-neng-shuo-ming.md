@@ -1,6 +1,6 @@
 # 自定义出口功能说明
 
-XrayR完整支持全部的Xray-core所提供的出口功能，具体启用方式如下：
+XrayR完整支持全部的Xray-core所提供的自定义出口功能，具体启用方式如下：
 
 1. 编写 custom\_outbound.json文件，此配置与Xray 出口配置完全相同，请查看：[https://xtls.github.io/config/base/outbounds/](https://xtls.github.io/config/base/outbounds/)获取帮助。
 2. 在`config.yml`中配置`OutboundConfigPath`为custom\_outbound.json的路径。

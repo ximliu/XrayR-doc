@@ -6,6 +6,10 @@ XrayR完整支持全部的Xray-core所提供的自定义路由功能，具体启
 2. 在`config.yml`中配置`RouteConfigPath`为route.json的路径。
 3. 如果要启用geoip相关配置，请确保`geoip.dat`和`geosite.dat`处于和`config.yml`同一目录。
 
+{% hint style="info" %}
+远程获取的节点自动生成的inboundTag/outboundTag遵循：NodeType\_Port的形式。如：V2ray\_80。入/出站tag相同。
+{% endhint %}
+
 ### 自定义路由功能示例
 
 ```text

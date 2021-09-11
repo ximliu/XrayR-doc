@@ -26,7 +26,7 @@
 {
   "header": {
     "type": "http",
-    "request": {}
+    "request": {},
     "response": {}
   }
 }

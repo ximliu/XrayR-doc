@@ -332,7 +332,8 @@ ControllerConfig:
 | `DNSType`              | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
 | `DisableUploadTraffic` | `false`, `true`                    | 是否禁止上传节点流量，默认`false`                                                                                    |
 | `DisableGetRule`       | `false`, `true`                    | 是否禁止获取远程规则，默认`false`                                                                                    |
-| `DisableIVCheck`       | `false`, `true`                    | 是否关闭Shadowsocks用于防止重放攻击的布隆过滤器                                                                           |
+| `DisableIVCheck`       | `false`, `true`                    | 是否关闭Shadowsocks用于防止重放攻击的布隆过滤器，默认`false`                                                                 |
+| `DisableSniffing`      | `false`, `true`                    | 是否关闭domain sniffing，默认`false`                                                                           |
 | `EnableProxyProtocol`  | `true`,`false`                     | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效                                                                 |
 | `EnableFallback`       | `true`,`false`                     | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效                                                                    |
 | `FallBackConfigs`      | list                               | Fallback 相关配置，请查看 [Fallback功能说明](../gong-neng-shuo-ming/fallback.md)                                    |

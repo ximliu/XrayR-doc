@@ -43,7 +43,8 @@ Nodes:
       DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
       DisableUploadTraffic: false # Disable Upload Traffic to the panel
       DisableGetRule: false # Disable Get Rule from the panel
-      DisableIVCheck: false # Disable the anti-reply protection for Shadowsocks 
+      DisableIVCheck: false # Disable the anti-reply protection for Shadowsocks
+      DisableSniffing: false # Disable domain sniffing 
       EnableProxyProtocol: false # Only works for WebSocket and TCP
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
@@ -310,7 +311,8 @@ ControllerConfig:
   DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
   DisableUploadTraffic: false # Disable Upload Traffic to the panel
   DisableGetRule: false # Disable Get Rule from the panel
-  DisableIVCheck: false # Disable the anti-reply protection for Shadowsocks 
+  DisableIVCheck: false # Disable the anti-reply protection for Shadowsocks
+  DisableSniffing: false # Disable domain sniffing 
   EnableProxyProtocol: false # Only works for WebSocket and TCP
   EnableFallback: false # Only support for Trojan and Vless
   FallBackConfigs:  # Support multiple fallbacks

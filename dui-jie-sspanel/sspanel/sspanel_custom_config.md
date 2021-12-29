@@ -3,6 +3,17 @@
 对于sspanel >= 2021.11的版本中自动启用Custom_config的配置方法，请查看以下配置，正确配置结点信息。关于订阅相关信息，请查看SSPanel相关文档：https://wiki.sspanel.org/#/universal-subscription。
 如果不想使用custom config，请在`ApiConfig`中将`DisableCustomConfig`设为`true`。
 
+# Shadowsocks
+```json
+{
+	"offset_port_user": "12345", //前端/订阅中下发的端口
+    "offset_port_node": "12345", //节点服务器下发的端口
+    "server_user": "hk.domain.com", //前端/订阅中下发的服务器地址
+    "mu_encryption": "chacha20-ietf-poly1305", // `aes-128-gcm`, `aes-256-gcm`, `chacha20-ietf-poly1305`三者之一
+}
+
+```
+
 # V2ray
 
 ## tcp示例

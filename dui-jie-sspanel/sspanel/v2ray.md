@@ -14,14 +14,15 @@ IP;监听端口;alterId;(tcp或ws);(tls或不填);path=/xxx|host=xxxx.com|server
 
 alterId设为0，则自动启用VMessAEAD。
 
+{% hint style="info" %} 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0 {% endhint %}
 ## tcp示例
 
 ```text
-ip;12345;2;tcp;;server=域名
+ip;12345;0;tcp;;server=域名
 ```
 
 ```text
-示例：1.3.5.7;12345;2;tcp;;server=hk.domain.com
+示例：1.3.5.7;12345;0;tcp;;server=hk.domain.com
 ```
 
 ## tcp+http示例
@@ -29,41 +30,41 @@ ip;12345;2;tcp;;server=域名
 注意sspanel并不支持此类订阅下发，此选项只供开启后端http混淆。
 
 ```text
-ip;12345;2;tcp;;server=域名;headertype=http
+ip;12345;0;tcp;;server=域名;headertype=http
 ```
 
 ```text
-示例：1.3.5.7;12345;2;tcp;;server=hk.domain.com;headertype=http
+示例：1.3.5.7;12345;0;tcp;;server=hk.domain.com;headertype=http
 ```
 
 ## tcp + tls 示例
 
 ```text
-ip;12345;2;tcp;tls;server=域名|host=域名
+ip;12345;0;tcp;tls;server=域名|host=域名
 ```
 
 ```text
-示例：1.3.5.7;12345;2;tcp;tls;server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;12345;0;tcp;tls;server=hk.domain.com|host=hk.domain.com
 ```
 
 ## ws示例
 
 ```text
-ip;80;2;ws;;path=/xxx|server=域名|host=CDN域名
+ip;80;0;ws;;path=/xxx|server=域名|host=CDN域名
 ```
 
 ```text
-示例：1.3.5.7;80;2;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;80;0;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
 
 ## ws + tls 示例
 
 ```text
-ip;443;2;ws;tls;path=/xxx|server=域名|host=CDN域名
+ip;443;0;ws;tls;path=/xxx|server=域名|host=CDN域名
 ```
 
 ```text
-示例：1.3.5.7;443;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;443;0;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
 
 ## ws + tls \(Caddy/Nginx\) 示例
@@ -73,11 +74,11 @@ ip;443;2;ws;tls;path=/xxx|server=域名|host=CDN域名
 同时设置outside\_port为Caddy/Nginx监听端口，转发到12345为XrayR监听端口。可以在后端配置`ListenIP: 127.0.0.1`监听本地端口。
 
 ```text
-ip;12345;2;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
+ip;12345;0;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 ```
 
 ```text
-示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+示例：1.3.5.7;12345;0;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
 ```
 
 ## grpc+tls示例
@@ -85,11 +86,11 @@ ip;12345;2;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 使用grpc建议升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
 
 ```text
-ip;12345;2;grpc;tls;host=域名|server=域名|servicename=域名
+ip;12345;0;grpc;tls;host=域名|server=域名|servicename=域名
 ```
 
 ```text
-示例：1.3.5.7;12345;2;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
+示例：1.3.5.7;12345;0;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
 ```
 
 ## 中转端口
@@ -99,7 +100,7 @@ ip;12345;2;grpc;tls;host=域名|server=域名|servicename=域名
 XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配置文件中设置监听ip为`127.0.0.1`。
 
 ```text
-示例：1.3.5.7;80;2;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com|outside_port=12345
+示例：1.3.5.7;80;0;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com|outside_port=12345
 ```
 
 ## 启用Vless
@@ -111,7 +112,7 @@ sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankk
 在任意协议配置后增加`enable_vless=true`
 
 ```text
-示例：hk.domain.com;12345;2;tcp;(tls或xtls);server=hk.domain.com|enable_vless=true
+示例：hk.domain.com;12345;0;tcp;(tls或xtls);server=hk.domain.com|enable_vless=true
 ```
 
 同时在本地设置文件将`EnableVless`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
@@ -127,7 +128,7 @@ sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankk
 将任意协议配置中的`tls`替换成`xtls`，如果xtls有流控flow，则在最后增加: `|flow=flow-vlaue`
 
 ```text
-示例：hk.domain.com;443;2;tcp;xtls;server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
+示例：hk.domain.com;443;0;tcp;xtls;server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
 ```
 
 同时在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)

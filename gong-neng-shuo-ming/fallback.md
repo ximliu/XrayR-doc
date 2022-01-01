@@ -6,7 +6,7 @@
 >
 > 目前您可以在使用 VLESS 或者 trojan 协议时, 通过配置 fallbacks 来使用回落这一特性, 并且创造出非常丰富的组合玩法.
 >
-> ---[https://xtls.github.io/config/fallback/](https://xtls.github.io/config/fallback/)
+> ---[https://xtls.github.io/config/features/fallback.html](https://xtls.github.io/config/features/fallback.html)
 
 ## 启用Fallback功能
 
@@ -102,5 +102,5 @@ server {
 
 ## 参考
 
-[Xray Fallback](https://xtls.github.io/config/fallback/)
+[Xray Fallback](https://xtls.github.io/config/features/fallback.html)
 

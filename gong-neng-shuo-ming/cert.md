@@ -8,8 +8,8 @@ XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配
 CertConfig:
     CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
     CertDomain: "node2.test.com" # Domain to cert
-    CertFile: ./cert/node2.test.com.cert # Provided if the CertMode is file
-    KeyFile: ./cert/node2.test.com.key
+    CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+    KeyFile: /etc/XrayR/cert/node2.test.com.key
     Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
     Email: test@me.com
     DNSEnv: # DNS ENV option used by DNS provider

@@ -10,11 +10,11 @@
 ```yaml
 Log:
   Level: none # Log level: none, error, warning, info, debug 
-  AccessPath: # ./access.Log
-  ErrorPath: # ./error.log
-DnsConfigPath: # ./dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
-RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
-OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+  AccessPath: # /etc/XrayR/access.Log
+  ErrorPath: # /etc/XrayR/error.log
+DnsConfigPath: # /etc/XrayR/dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -34,7 +34,7 @@ Nodes:
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-      RuleListPath: # ./rulelist Path to local rulelist file
+      RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -56,8 +56,8 @@ Nodes:
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
-        CertFile: ./cert/node1.test.com.cert # Provided if the CertMode is file
-        KeyFile: ./cert/node1.test.com.key
+        CertFile: /etc/XrayR/cert/node1.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node1.test.com.key
         Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
@@ -80,8 +80,8 @@ Nodes:
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node2.test.com" # Domain to cert
-        CertFile: ./cert/node2.test.com.cert # Provided if the CertMode is file
-        KeyFile: ./cert/node2.test.com.key
+        CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node2.test.com.key
         Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
@@ -98,11 +98,11 @@ Nodes:
 ```yaml
 Log:
   Level: debug # Log level: none, error, warning, info, debug 
-  AccessPath: # ./access.Log
-  ErrorPath: # ./error.log
-DnsConfigPath: # ./dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
-RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
-OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+  AccessPath: # /etc/XrayR/access.Log
+  ErrorPath: # /etc/XrayR/error.log
+DnsConfigPath: # /etc/XrayR/dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -118,8 +118,8 @@ ConnetionConfig:
 ```yaml
 Log:
   Level: debug # Log level: none, error, warning, info, debug 
-  AccessPath: # ./access.Log
-  ErrorPath: # ./error.log
+  AccessPath: # /etc/XrayR/access.Log
+  ErrorPath: # /etc/XrayR/error.log
 ```
 
 | 参数         | 选项                                    | 说明                         |
@@ -133,7 +133,7 @@ Log:
 指定自定义DNS配置文件的路径
 
 ```yaml
-DnsConfigPath: # ./dns.json  Path to dns config
+DnsConfigPath: # /etc/XrayR/dns.json  Path to dns config
 ```
 
 | 参数            | 选项 | 说明                    |
@@ -145,7 +145,7 @@ DnsConfigPath: # ./dns.json  Path to dns config
 指定路由配置文件文件路径
 
 ```yaml
-RouteConfigPath: # ./route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
 ```
 
 | 参数              | 选项 | 说明                     |
@@ -157,7 +157,7 @@ RouteConfigPath: # ./route.json # Path to route config, check https://xtls.githu
 指定出口配置文件文件路径
 
 ```yaml
-OutboundConfigPath: # ./custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ```
 
 | 参数                 | 选项 | 说明                     |
@@ -205,7 +205,7 @@ Nodes:
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-      RuleListPath: # ./rulelist Path to local rulelist file
+      RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -225,8 +225,8 @@ Nodes:
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
-        CertFile: ./cert/node1.test.com.cert # Provided if the CertMode is file
-        KeyFile: ./cert/node1.test.com.key
+        CertFile: /etc/XrayR/cert/node1.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node1.test.com.key
         Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
@@ -244,7 +244,7 @@ Nodes:
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
       SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-      RuleListPath: # ./rulelist Path to local rulelist file
+      RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
@@ -252,8 +252,8 @@ Nodes:
       CertConfig:
         CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node2.test.com" # Domain to cert
-        CertFile: ./cert/node2.test.com.cert # Provided if the CertMode is file
-        KeyFile: ./cert/node2.test.com.key
+        CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node2.test.com.key
         Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
@@ -284,7 +284,7 @@ ApiConfig:
     EnableXTLS: false # Enable XTLS for V2ray and Trojan
     SpeedLimit: 0 # Local settings will replace remote settings, 0 means disable
     DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-    RuleListPath: # ./rulelist Path to local rulelist file
+    RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
     DisableCustomConfig: false # Disable custom config
 ```
 
@@ -348,8 +348,8 @@ XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配
 CertConfig:
     CertMode: dns # Option about how to get certificate: none, file, http, dns. Choose "none" will forcedly disable the tls config.
     CertDomain: "node2.test.com" # Domain to cert
-    CertFile: ./cert/node2.test.com.cert # Provided if the CertMode is file
-    KeyFile: ./cert/node2.test.com.key
+    CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+    KeyFile: /etc/XrayR/cert/node2.test.com.key
     Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
     Email: test@me.com
     DNSEnv: # DNS ENV option used by DNS provider

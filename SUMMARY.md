@@ -16,7 +16,7 @@
 ## 对接SSpanel
 
 * [基本对接配置](dui-jie-sspanel/sspanel/README.md)
-  * [SSPanel Custom Config](dui-jie-sspanel/sspanel/sspanel_custom_config.md)
+  * [对接新版SSPanel Custom Config](dui-jie-sspanel/sspanel/sspanel_custom_config.md)
   * [对接V2ray](dui-jie-sspanel/sspanel/v2ray.md)
   * [对接Trojan](dui-jie-sspanel/sspanel/trojan.md)
   * [对接Shadowsocks](dui-jie-sspanel/sspanel/shadowsocks.md)

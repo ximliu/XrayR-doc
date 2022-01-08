@@ -16,13 +16,17 @@
 
 # V2ray
 
+alterId设为0，则自动启用VMessAEAD。
+
+{% hint style="info" %} 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0 {% endhint %}
+
 ## tcp示例
 
 ``` json
 {
 	"offset_port_node": 12345,
 	"server_sub": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "none",
 }
@@ -34,7 +38,7 @@
 {
 	"offset_port_node": 12345,
 	"server_sub": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "none",
 	"header": {
@@ -57,7 +61,7 @@
 	"offset_port_node": 443,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "tls",
 }
@@ -70,7 +74,7 @@
 	"offset_port_node": 80,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "ws",
 	"security": "none",
 	"path": "/v2ray"
@@ -84,7 +88,7 @@
 	"offset_port_node": 443,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "ws",
 	"security": "tls",
 	"path": "/v2ray"
@@ -98,7 +102,7 @@
 	"offset_port_node": 443,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "grpc",
 	"security": "tls",
 	"servicename": "some_name"
@@ -113,7 +117,7 @@
 	"offset_port_user": 8888,
 	"offset_port_node": 12345,
 	"server_sub": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "none",
 }
@@ -129,7 +133,7 @@
 	"offset_port_node": 443,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "tls",
 	"enable_vless": 1
@@ -145,7 +149,7 @@
 	"offset_port_node": 443,
 	"server_sub": "hk.domain.com",
 	"host": "hk.domain.com",
-	"alter_id": 2,
+	"alter_id": 0,
 	"network": "tcp",
 	"security": "xtls",
 	"enable_vless": 1

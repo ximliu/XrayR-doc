@@ -40,6 +40,7 @@
 * [设备连接限制功能说明](gong-neng-shuo-ming/devicelimit.md)
 * [自定义DNS说明](gong-neng-shuo-ming/dns.md)
 * [自定义路由功能说明](gong-neng-shuo-ming/zi-ding-yi-lu-you-gong-neng-shuo-ming.md)
+* [自定义入口功能说明](gong-neng-shuo-ming/zi-ding-yi-ru-kou-gong-neng-shuo-ming.md)
 * [自定义出口功能说明](gong-neng-shuo-ming/zi-ding-yi-chu-kou-gong-neng-shuo-ming.md)
 * [审计功能说明](gong-neng-shuo-ming/rule.md)
 * [自动申请证书说明](gong-neng-shuo-ming/cert.md)

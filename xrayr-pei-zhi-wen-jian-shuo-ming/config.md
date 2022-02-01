@@ -12,9 +12,10 @@ Log:
   Level: none # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XrayR/access.Log
   ErrorPath: # /etc/XrayR/error.log
-DnsConfigPath: # /etc/XrayR/dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
-RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
-OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
+InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -100,9 +101,10 @@ Log:
   Level: debug # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XrayR/access.Log
   ErrorPath: # /etc/XrayR/error.log
-DnsConfigPath: # /etc/XrayR/dns.json Path to dns config, check https://xtls.github.io/config/base/dns/ for help
-RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
-OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
+DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
+RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
+InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
   ConnIdle: 10 # Connection idle time limit, Second
@@ -139,7 +141,6 @@ DnsConfigPath: # /etc/XrayR/dns.json  Path to dns config
 | 参数            | 选项 | 说明                    |
 | --------------- | ---- | ----------------------- |
 | `DnsConfigPath` | 无   | 自定义DNS配置文件的路径 |
-
 #### 自定义路由配置
 
 指定路由配置文件文件路径
@@ -152,6 +153,15 @@ RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://x
 | ----------------- | ---- | ------------------------ |
 | `RouteConfigPath` | 无   | 自定义路由配置文件的路径 |
 
+#### 自定义入口设置
+
+```yaml
+InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
+```
+
+| 参数              | 选项 | 说明                     |
+| ----------------- | ---- | ------------------------ |
+| `InboundConfigPath` | 无   | 自定义入口配置文件的路径 |
 #### 自定义出口配置
 
 指定出口配置文件文件路径

@@ -115,7 +115,7 @@ ConnetionConfig:
 
 #### 日志配置
 
-日志配置用于控制XrayR-core的日志级别，access.log和error.log需要设置日志级别大于error才会被记录。
+日志配置用于控制XrayR-core的日志级别，access.log和error.log需要设置日志级别大于warning才会被记录。
 
 ```yaml
 Log:

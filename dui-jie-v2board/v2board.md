@@ -12,11 +12,11 @@
 
 ```text
 {
-  "serviceName": "mygrpc",
+  "serviceName": "name",
 }
 ```
 
-，其中`"name"`换成你的域名，或其他sni分流域名
+其中`"name"`换成任意字符串，可用于nginx等反代分流。
 
 ### 对接vmess+tcp+http
 

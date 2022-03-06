@@ -21,7 +21,7 @@
 ### 对接vmess+tcp+http
 
 {% hint style="info" %}
-原生V2board不支持tcp+http订阅下发，请自行寻找解决方法，或手动配置和客户端文件。
+原生V2board不支持tcp+http订阅下发，请自行寻找解决方法，或手动配置客户端文件。
 {% endhint %}
 
 在对接vmess+tcp+http时，v2board需要在传输协议配置中增加如下内容：

@@ -21,7 +21,7 @@
 使用trojan+grpc请升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
 
 ```text
-示例：gz.aaa.com;port=443|host=gz.aaa.com|grpc=1|servicename=gz.aaa.com
+示例：gz.aaa.com;port=443|host=gz.aaa.com|grpc=1|servicename=mygrpc
 ```
 
 ## 中转示例

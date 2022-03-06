@@ -87,11 +87,11 @@ ip;12345;0;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 使用grpc建议升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
 
 ```text
-ip;12345;0;grpc;tls;host=域名|server=域名|servicename=域名
+ip;12345;0;grpc;tls;host=域名|server=域名|servicename=任意字符串
 ```
 
 ```text
-示例：1.3.5.7;12345;0;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
+示例：1.3.5.7;12345;0;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=mygrpc
 ```
 
 ## 中转端口
